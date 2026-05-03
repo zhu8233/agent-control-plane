@@ -1,0 +1,18 @@
+{
+  "task_id": "example-task-001",
+  "project_id": "example-project",
+  "title": "Synthetic example task",
+  "description": "Replace with a real objective. Used only for schema / tooling demos.",
+  "status": "intake",
+  "knowledge_context": {
+    "layer_hint": "curation",
+    "archive_policy": "findings_only"
+  },
+  "testenv_profile": "none_with_gap",
+  "native_test_scope": "GAP: not wired",
+  "flags": {
+    "work_complete": false,
+    "verify_complete": false,
+    "knowledge_archived": false
+  }
+}

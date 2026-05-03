@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-control-plane.local/schemas/acp-handoff.schema.json",
+  "title": "ACP Handoff",
+  "type": "object",
+  "required": [
+    "handoff_id",
+    "task_id",
+    "from_actor",
+    "to_actor",
+    "completed_work",
+    "remaining_work",
+    "evidence_refs",
+    "risks"
+  ],
+  "properties": {
+    "handoff_id": { "type": "string", "minLength": 1 },
+    "task_id": { "type": "string", "minLength": 1 },
+    "from_actor": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "enum": ["human", "hermes", "agent"] },
+        "agent_profile_id": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "to_actor": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "enum": ["human", "hermes", "agent"] },
+        "agent_profile_id": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "completed_work": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "remaining_work": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "risks": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}

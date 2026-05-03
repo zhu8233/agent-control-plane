@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-control-plane.local/schemas/acp-task.schema.json",
+  "title": "ACP Task",
+  "type": "object",
+  "required": ["task_id", "project_id", "title", "status"],
+  "properties": {
+    "task_id": { "type": "string", "minLength": 1 },
+    "project_id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": [
+        "intake",
+        "context_bind",
+        "claimed",
+        "team_planned",
+        "delegated",
+        "coordinating",
+        "executing",
+        "verifying",
+        "reviewing",
+        "archiving",
+        "completed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "priority": { "type": "string" },
+    "knowledge_context": {
+      "type": "object",
+      "description": "See acp-knowledge-context.schema.json",
+      "additionalProperties": true
+    },
+    "assignments": {
+      "type": "array",
+      "description": "Assignment ids linked to this task (Hermes team model; protocol §2.1).",
+      "items": { "type": "string" }
+    },
+    "gates": {
+      "type": "array",
+      "description": "Gate ids or instance ids for this task.",
+      "items": { "type": "string" }
+    },
+    "evidence_refs": { "type": "array", "items": { "type": "string" } },
+    "external_refs": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "testenv_profile": {
+      "type": "string",
+      "enum": ["smoke", "standard", "full", "none_with_gap"]
+    },
+    "native_test_scope": { "type": "string" },
+    "flags": {
+      "type": "object",
+      "properties": {
+        "work_complete": { "type": "boolean" },
+        "verify_complete": { "type": "boolean" },
+        "knowledge_archived": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

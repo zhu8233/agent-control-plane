@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-control-plane.local/schemas/acp-knowledge-context.schema.json",
+  "title": "ACP KnowledgeContext",
+  "type": "object",
+  "properties": {
+    "topic_id": { "type": "string" },
+    "layer_hint": {
+      "type": "string",
+      "enum": ["intake", "curation", "canonical", "archive"]
+    },
+    "rules_ref": { "type": "string" },
+    "registry_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "mcp_subject_id": { "type": "string" },
+    "archive_policy": { "type": "string" }
+  },
+  "additionalProperties": true
+}

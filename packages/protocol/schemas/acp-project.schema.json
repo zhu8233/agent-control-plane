@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-control-plane.local/schemas/acp-project.schema.json",
+  "title": "ACP Project",
+  "type": "object",
+  "required": ["project_id", "name", "root_path", "type"],
+  "properties": {
+    "project_id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string" },
+    "root_path": { "type": "string", "minLength": 1 },
+    "type": {
+      "type": "string",
+      "enum": ["code", "vault", "mixed"]
+    },
+    "links": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" }
+    },
+    "default_agents": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional Hermes / worker profile ids"
+    }
+  },
+  "additionalProperties": true
+}

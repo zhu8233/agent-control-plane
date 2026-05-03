@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-control-plane.local/schemas/acp-escalation.schema.json",
+  "title": "ACP Escalation",
+  "type": "object",
+  "required": [
+    "escalation_id",
+    "task_id",
+    "category",
+    "summary",
+    "options",
+    "status"
+  ],
+  "properties": {
+    "escalation_id": { "type": "string", "minLength": 1 },
+    "task_id": { "type": "string", "minLength": 1 },
+    "category": {
+      "type": "string",
+      "enum": [
+        "unclear_requirements",
+        "permission_denied",
+        "verify_failed",
+        "agent_conflict",
+        "other"
+      ]
+    },
+    "summary": { "type": "string" },
+    "options": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["open", "resolved", "dismissed"]
+    }
+  },
+  "additionalProperties": true
+}

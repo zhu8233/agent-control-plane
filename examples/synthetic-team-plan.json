@@ -1,0 +1,10 @@
+{
+  "team_plan_id": "example-team-plan-001",
+  "task_id": "example-task-001",
+  "created_by": "hermes",
+  "roles": ["implementer", "reviewer"],
+  "assignments": [],
+  "gates": ["plan_ready", "context_ready", "execute_done", "verify_done"],
+  "status": "draft",
+  "notes": "Synthetic team plan for validation only."
+}

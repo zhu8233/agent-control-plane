@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-control-plane.local/schemas/acp-team-plan.schema.json",
+  "title": "ACP TeamPlan",
+  "type": "object",
+  "required": [
+    "team_plan_id",
+    "task_id",
+    "created_by",
+    "roles",
+    "assignments",
+    "gates",
+    "status"
+  ],
+  "properties": {
+    "team_plan_id": { "type": "string", "minLength": 1 },
+    "task_id": { "type": "string", "minLength": 1 },
+    "created_by": { "type": "string", "minLength": 1 },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "coordinator",
+          "implementer",
+          "researcher",
+          "reviewer",
+          "tester",
+          "archivist",
+          "specialist"
+        ]
+      }
+    },
+    "assignments": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "gates": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "plan_ready",
+          "context_ready",
+          "execute_done",
+          "verify_done",
+          "review_done",
+          "archive_done"
+        ]
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "active", "superseded", "cancelled"]
+    },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": true
+}

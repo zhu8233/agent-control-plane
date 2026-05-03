@@ -1,0 +1,9 @@
+{
+  "name": "@acp/protocol",
+  "private": true,
+  "version": "0.1.0",
+  "description": "ACP JSON Schemas and protocol assets",
+  "files": [
+    "schemas"
+  ]
+}

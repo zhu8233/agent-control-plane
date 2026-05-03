@@ -1,0 +1,23 @@
+{
+  "name": "agent-control-plane",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Agent Control Plane — local-first monorepo (protocol, server, web, MCP, adapters)",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "validate:schemas": "node scripts/validate-schemas.mjs",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "typecheck:mcp": "node --max-old-space-size=8192 ./node_modules/typescript/bin/tsc -p packages/mcp-server/tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

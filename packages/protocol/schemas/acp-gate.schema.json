@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-control-plane.local/schemas/acp-gate.schema.json",
+  "title": "ACP Gate",
+  "type": "object",
+  "required": ["gate_id", "kind", "status"],
+  "properties": {
+    "gate_id": { "type": "string", "minLength": 1 },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "plan_ready",
+        "context_ready",
+        "execute_done",
+        "verify_done",
+        "review_done",
+        "archive_done"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "passed", "failed", "waived"]
+    },
+    "waive_reason": { "type": "string" },
+    "evidence_refs": { "type": "array", "items": { "type": "string" } },
+    "actor": { "type": "string" }
+  },
+  "additionalProperties": true
+}

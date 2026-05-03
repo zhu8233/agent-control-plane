@@ -1,0 +1,7 @@
+{
+  "name": "@acp/adapters",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Runner adapters (TasksAgent, Claude Code, Cursor, …) — scaffold",
+  "type": "module"
+}

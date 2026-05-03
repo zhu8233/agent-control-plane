@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-control-plane.local/schemas/acp-event-envelope.schema.json",
+  "title": "ACP Event Envelope",
+  "type": "object",
+  "required": ["schema", "event_id", "occurred_at", "task_id", "name"],
+  "properties": {
+    "schema": { "type": "string", "const": "acp.event.v1" },
+    "event_id": { "type": "string", "minLength": 1 },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "task_id": { "type": "string", "minLength": 1 },
+    "run_id": { "type": "string" },
+    "assignment_id": { "type": "string" },
+    "actor": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["human", "hermes", "agent"] },
+        "agent_profile_id": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "name": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "payload": { "type": "object", "additionalProperties": true }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,23 @@
+# Minimal stub — replace with a real contract per sandbox-test-framework / testenv.
+# See your project's stack and native test inventory before enabling profiles.
+
+version: "0.1"
+app:
+  name: stub-app
+  root: .
+profiles:
+  smoke:
+    description: "Placeholder — document real commands here"
+    steps:
+      - name: noop
+        run: 'node -e "console.log(\"smoke stub\")"'
+  standard:
+    description: "Not wired — set GAP in task native_test_scope until wired"
+    steps:
+      - name: noop
+        run: 'node -e "console.log(\"standard stub\")"'
+  full:
+    description: "Not wired"
+    steps:
+      - name: noop
+        run: 'node -e "console.log(\"full stub\")"'

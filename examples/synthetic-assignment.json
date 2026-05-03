@@ -1,0 +1,10 @@
+{
+  "assignment_id": "example-assignment-001",
+  "task_id": "example-task-001",
+  "agent_profile_id": "example-implementer-001",
+  "role": "implementer",
+  "instructions": "Implement the minimal API per protocol doc; keep changes small.",
+  "expected_outputs": ["PR or patch", "notes in progress.md"],
+  "evidence_requirements": ["summary", "test_report"],
+  "status": "pending"
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-control-plane.local/schemas/acp-agent-profile.schema.json",
+  "title": "ACP AgentProfile",
+  "type": "object",
+  "required": [
+    "agent_profile_id",
+    "role",
+    "display_name",
+    "capabilities",
+    "tools",
+    "risk_tier",
+    "cost_hint",
+    "latency_hint"
+  ],
+  "properties": {
+    "agent_profile_id": { "type": "string", "minLength": 1 },
+    "role": {
+      "type": "string",
+      "enum": [
+        "coordinator",
+        "implementer",
+        "researcher",
+        "reviewer",
+        "tester",
+        "archivist",
+        "specialist"
+      ]
+    },
+    "display_name": { "type": "string" },
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tools": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "risk_tier": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "cost_hint": { "type": "string" },
+    "latency_hint": {
+      "type": "string",
+      "enum": ["fast", "balanced", "slow_ok"]
+    },
+    "default_model": { "type": "string" }
+  },
+  "additionalProperties": true
+}

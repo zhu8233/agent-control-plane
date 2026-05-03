@@ -1,0 +1,11 @@
+{
+  "agent_profile_id": "example-implementer-001",
+  "role": "implementer",
+  "display_name": "Synthetic implementer",
+  "capabilities": ["typescript", "fastify"],
+  "tools": ["git", "mcp"],
+  "risk_tier": "medium",
+  "cost_hint": "moderate",
+  "latency_hint": "balanced",
+  "default_model": "synthetic-model-id"
+}
