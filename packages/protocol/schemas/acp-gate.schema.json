@@ -21,9 +21,13 @@
       "type": "string",
       "enum": ["pending", "passed", "failed", "waived"]
     },
-    "waive_reason": { "type": "string" },
-    "evidence_refs": { "type": "array", "items": { "type": "string" } },
-    "actor": { "type": "string" }
+    "waive_reason": { "type": "string", "maxLength": 8000 },
+    "evidence_refs": {
+      "type": "array",
+      "maxItems": 2000,
+      "items": { "type": "string", "maxLength": 2048 }
+    },
+    "actor": { "type": "string", "maxLength": 2048 }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

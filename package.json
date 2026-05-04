@@ -1,7 +1,7 @@
 {
   "name": "agent-control-plane",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.3",
   "description": "Agent Control Plane — local-first monorepo (protocol, server, web, MCP, adapters)",
   "license": "MIT",
   "workspaces": [
@@ -14,10 +14,23 @@
     "validate:schemas": "node scripts/validate-schemas.mjs",
     "build": "npm run build --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
-    "typecheck:mcp": "node --max-old-space-size=8192 ./node_modules/typescript/bin/tsc -p packages/mcp-server/tsconfig.json --noEmit"
+    "typecheck:mcp": "node --max-old-space-size=8192 ./node_modules/typescript/bin/tsc -p packages/mcp-server/tsconfig.json --noEmit",
+    "dev:server": "npm run build -w @acp/server && node packages/server/dist/index.js",
+    "dev:web": "npm run dev -w @acp/web",
+    "test": "tsx --test packages/server/test/integration.test.ts",
+    "lint": "eslint packages/server/src packages/server/test packages/mcp-server/src packages/web/src scripts",
+    "smoke:mvp": "node scripts/smoke-mvp.mjs",
+    "smoke:http": "node scripts/smoke-mvp.mjs",
+    "smoke:mcp": "node scripts/smoke-mvp.mjs"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1"
+    "ajv-formats": "^3.0.1",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.6.0",
+    "tsx": "^4.19.2",
+    "typescript-eslint": "^8.59.1"
   }
 }

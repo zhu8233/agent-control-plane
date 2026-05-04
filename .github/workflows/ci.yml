@@ -9,14 +9,34 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: npm
-      - run: npm ci
-      - run: npm run validate:schemas
-      - run: npm run typecheck
-      - run: npm run typecheck:mcp
-      - run: npm run build
+      - name: Install dependencies
+        timeout-minutes: 5
+        run: npm ci
+      - name: Validate JSON Schemas
+        timeout-minutes: 2
+        run: npm run validate:schemas
+      - name: ESLint
+        timeout-minutes: 3
+        run: npm run lint
+      - name: Typecheck workspaces
+        timeout-minutes: 8
+        run: npm run typecheck
+      - name: Typecheck MCP bundle entry
+        timeout-minutes: 8
+        run: npm run typecheck:mcp
+      - name: Build all packages
+        timeout-minutes: 8
+        run: npm run build
+      - name: Integration tests
+        timeout-minutes: 5
+        run: npm test
+      - name: MVP smoke
+        timeout-minutes: 3
+        run: npm run smoke:mvp

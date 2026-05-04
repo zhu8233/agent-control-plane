@@ -21,35 +21,39 @@
       "required": ["type"],
       "properties": {
         "type": { "type": "string", "enum": ["human", "hermes", "agent"] },
-        "agent_profile_id": { "type": "string" }
+        "agent_profile_id": { "type": "string", "maxLength": 2048 }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "to_actor": {
       "type": "object",
       "required": ["type"],
       "properties": {
         "type": { "type": "string", "enum": ["human", "hermes", "agent"] },
-        "agent_profile_id": { "type": "string" }
+        "agent_profile_id": { "type": "string", "maxLength": 2048 }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "completed_work": {
       "type": "array",
-      "items": { "type": "string" }
+      "maxItems": 500,
+      "items": { "type": "string", "maxLength": 8000 }
     },
     "remaining_work": {
       "type": "array",
-      "items": { "type": "string" }
+      "maxItems": 500,
+      "items": { "type": "string", "maxLength": 8000 }
     },
     "evidence_refs": {
       "type": "array",
-      "items": { "type": "string" }
+      "maxItems": 2000,
+      "items": { "type": "string", "maxLength": 2048 }
     },
     "risks": {
       "type": "array",
-      "items": { "type": "string" }
+      "maxItems": 200,
+      "items": { "type": "string", "maxLength": 8000 }
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

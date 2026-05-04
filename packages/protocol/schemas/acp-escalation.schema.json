@@ -24,15 +24,16 @@
         "other"
       ]
     },
-    "summary": { "type": "string" },
+    "summary": { "type": "string", "maxLength": 16000 },
     "options": {
       "type": "array",
-      "items": { "type": "string" }
+      "maxItems": 100,
+      "items": { "type": "string", "maxLength": 2000 }
     },
     "status": {
       "type": "string",
       "enum": ["open", "resolved", "dismissed"]
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

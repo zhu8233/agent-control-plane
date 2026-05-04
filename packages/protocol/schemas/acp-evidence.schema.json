@@ -10,10 +10,10 @@
       "type": "string",
       "enum": ["diff", "test_report", "log", "replay", "trace", "summary"]
     },
-    "uri": { "type": "string", "minLength": 1 },
+    "uri": { "type": "string", "minLength": 1, "maxLength": 8192 },
     "hash": { "type": "string" },
     "created_at": { "type": "string", "format": "date-time" },
-    "produced_by_run_id": { "type": "string" }
+    "produced_by_run_id": { "type": "string", "maxLength": 2048 }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

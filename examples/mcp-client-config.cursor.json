@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "agent-control-plane": {
+      "command": "node",
+      "args": ["packages/mcp-server/dist/index.js"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "ACP_SERVER_URL": "http://127.0.0.1:3840"
+      }
+    }
+  }
+}

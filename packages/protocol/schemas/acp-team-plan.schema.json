@@ -18,6 +18,7 @@
     "created_by": { "type": "string", "minLength": 1 },
     "roles": {
       "type": "array",
+      "maxItems": 500,
       "items": {
         "type": "string",
         "enum": [
@@ -33,10 +34,12 @@
     },
     "assignments": {
       "type": "array",
-      "items": { "type": "string" }
+      "maxItems": 2000,
+      "items": { "type": "string", "maxLength": 2048 }
     },
     "gates": {
       "type": "array",
+      "maxItems": 32,
       "items": {
         "type": "string",
         "enum": [
@@ -53,7 +56,7 @@
       "type": "string",
       "enum": ["draft", "active", "superseded", "cancelled"]
     },
-    "notes": { "type": "string" }
+    "notes": { "type": "string", "maxLength": 32000 }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

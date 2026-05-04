@@ -28,14 +28,16 @@
         "specialist"
       ]
     },
-    "instructions": { "type": "string" },
+    "instructions": { "type": "string", "maxLength": 32000 },
     "expected_outputs": {
       "type": "array",
-      "items": { "type": "string" }
+      "maxItems": 500,
+      "items": { "type": "string", "maxLength": 8000 }
     },
     "evidence_requirements": {
       "type": "array",
-      "items": { "type": "string" }
+      "maxItems": 500,
+      "items": { "type": "string", "maxLength": 8000 }
     },
     "status": {
       "type": "string",
@@ -48,7 +50,7 @@
         "cancelled"
       ]
     },
-    "blocked_reason": { "type": "string" }
+    "blocked_reason": { "type": "string", "maxLength": 8000 }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }
