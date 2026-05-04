@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Claim** — POST body JSON `null` is rejected; `acp-claim-post` schema `additionalProperties: false`.
 - **Web** — Vite dev proxy injects `Authorization` from `ACP_API_TOKEN` when `VITE_ACP_API_TOKEN` is unset (same token as API/MCP).
 
-[0.2.3]: https://github.com/zhu8233/agent-control-plane/compare/v0.2.2...v0.2.3
+[0.2.3]: https://github.com/zhu8233/agent-control-plane/compare/v0.1.0...v0.2.3
 
 ## [0.2.2] - 2026-05-04
 
