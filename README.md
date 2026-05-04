@@ -20,6 +20,7 @@ See [docs/engineering-layout.md](docs/engineering-layout.md).
 | [examples/](examples/) | Synthetic fixtures (tasks, team, evidence — safe to commit) |
 | [LICENSE](LICENSE) | MIT |
 | [docs/release-boundary.md](docs/release-boundary.md) | What must not be published |
+| [CHANGELOG.md](CHANGELOG.md) | Release history |
 
 ## Quick start
 
@@ -45,6 +46,8 @@ node packages/mcp-server/dist/index.js
 
 **Do not commit**: real vault data, production tasks, API keys, private `LocalOverrides`.
 
-## Version
+## Releases
 
-Protocol draft: **0.1.0** (see document history in `docs/agent-control-plane-protocol.md`).
+- **v0.1.0** (2026-05-03) — first public **local-first** scaffold: [CHANGELOG](CHANGELOG.md) · [GitHub Release](https://github.com/zhu8233/agent-control-plane/releases/latest).
+
+**Protocol draft** — **0.1.0** (see document history in [`docs/agent-control-plane-protocol.md`](docs/agent-control-plane-protocol.md)).
